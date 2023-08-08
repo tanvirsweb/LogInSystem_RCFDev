@@ -17,6 +17,7 @@ class Login extends Dbh{
         }
         $pwdHashed=$stmt->fetchAll(PDO::FETCH_ASSOC);
         $checkPwd=password_verify($pwd, $pwdHashed[0]["users_pwd"]);
+        $pwd=$pwdHashed[0]["users_pwd"];
         
         if($checkPwd == false){
             $stmt=null;
@@ -24,7 +25,7 @@ class Login extends Dbh{
             exit();
         }
         elseif($checkPwd == true){
-            $stmt=$this->connect()->prepare('SELECT * FROM users WHERE users_uid = ? OR users_email = ? AND users_pwd = ?;');
+            $stmt=$this->connect()->prepare('SELECT * FROM users WHERE (users_uid = ? OR users_email = ?) AND users_pwd = ?;');
 
             if( !$stmt->execute( array($uid, $uid, $pwd) ) ){
                 $stmt=null;

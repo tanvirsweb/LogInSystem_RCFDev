@@ -102,7 +102,7 @@
                         <input type="text" class="form-control"name="uid" placeholder="User Name or Email" id="user_name" required>                        
                     </div>                   
                     <div class="my-2 form-group">                        
-                        <input type="passowrd" class="form-control"name="pwd" placeholder="Password" id="pass" required>                        
+                        <input type="password" class="form-control"name="pwd" placeholder="Password" id="pass" required>                        
                     </div>
                     
                     <input type="submit" class="btn btn-primary d-flex mx-auto" value="LOGIN" name="submit">
