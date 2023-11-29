@@ -2,6 +2,10 @@
 include("dbh.classes.php");
 class Signup extends Dbh{
 
+    // $dbh=new PDO('mysql:host=localhost;dbname=ooploginsystem',$username,$password);
+    // $stmt= $dbh->prepare('SELECT users_uid FROM users WHERE users_uid=? OR users_email=?;');
+    // $stmt->execute( array($uid,$email) );
+    
     protected function checkUser($uid,$email){
         $stmt=$this->connect()->prepare('SELECT users_uid FROM users WHERE users_uid=? OR users_email=?;');
         if( !$stmt->execute( array($uid,$email) ) ){
